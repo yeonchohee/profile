@@ -518,111 +518,35 @@
 </footer>
 
 <script>
-const PROFILE = `당신은 연초희(Yeon Cho-hee) 개발자의 포트폴리오 AI 어시스턴트입니다.
-아래 정보를 바탕으로 채용담당자나 개발자의 질문에 한국어로 자연스럽고 친절하게 답해주세요.
-답변은 2~4문장 정도로 간결하게, 전문적이지만 따뜻한 톤으로 작성해주세요.
-
-=== 연초희 개발자 프로필 ===
-직무: 백엔드 엔지니어 (풀스택 경험 보유)
-이메일: duschgml0228@gmail.com
-GitHub: https://github.com/yeonchohee
-
-주력 기술:
-- 백엔드: Java, Spring Boot, Spring MVC (5년 이상)
-- AI/ML: Python, RAG 파이프라인, LangChain, Chroma DB, EXAONE sLLM, OpenAI API
-- 외부 연동: Autodesk API, OBD 디바이스 실시간 통신
-- 개발 도구: Git, Claude Code, Cursor (AI 네이티브 개발 방식 적극 활용)
-
-경력 상세:
-1. 상상진화 (2024.10 ~ 2026.03 현재)
-   - Autodesk API 기반 서드파티 플랫폼 R&D (2024.10 ~ 2025.09, 약 1년)
-   - RAG 기반 AI 챗봇 서비스 풀스택 단독 개발 (2025.10 ~ 현재)
-     · 사내 문서 데이터를 Chroma 벡터DB로 인덱싱, RAG 파이프라인 설계·구축
-     · EXAONE LLM → sLLM 전환으로 운영 비용 최적화
-     · 채팅 인터페이스 포함 풀스택 단독 개발 (설계→구현→배포)
-
-2. 개인 사업 (2023.10 ~ 2024.09)
-   - 스터디라운지 공간 운영, 소규모 렌탈 사업 직접 운영
-   - 고객 유치·운영·수익 관리 경험으로 서비스 운영자 관점의 제품 감각 보유
-   - 이 경험 덕분에 "고객 없는 개발은 무의미하다"는 감각이 생김
-
-3. 드림에이스 (2022.03 ~ 2023.09, 약 1년 6개월)
-   - FMS 차량관제시스템: OBD 기반 GPS 단말기와 서버 실시간 통신 연동
-     · 차량 위치·속도·문열림 상태 수집 및 제어, 이동경로 추적
-   
-4. 한국네트웍스 (2019.07 ~ 2022.02, 약 2년 7개월)
-   - 법무관리시스템: 자체 솔루션 설계·개발 및 고객사 커스터마이징 납품
-  
-
-강점:
-- 처음부터 끝까지 혼자 설계·구현·배포하는 풀사이클 개발 역량
-- AI 툴(Claude Code, Cursor)을 실무에 적극 활용하는 AI 네이티브 개발자
-- 사업 운영 경험으로 비즈니스 맥락을 이해하는 개발자
-- Java/Spring 백엔드 전문성 + AI 서비스 구축 경험
-
-관심 도메인: AI/테크 플랫폼
-현재 상황: 더 큰 성장과 좋은 팀을 위해 이직을 준비 중`;
-
+// ⚠️ 배포 후 본인 서버 주소로 변경하세요
+const API_URL = "https://YOUR-APP.onrender.com";
+ 
 let history = [];
-let apiKey = localStorage.getItem('oai_key') || '';
-
-if (apiKey) {
-  document.getElementById('apiKey').value = '••••••••••••' + apiKey.slice(-4);
-}
-
-function saveKey() {
-  const val = document.getElementById('apiKey').value.trim();
-  if (val.startsWith('sk-')) {
-    apiKey = val;
-    localStorage.setItem('oai_key', val);
-    document.getElementById('apiKey').value = '••••••••••••' + val.slice(-4);
-    addMsg('bot', 'API 키가 저장되었습니다. 이제 질문해보세요!');
-  } else if (!val.includes('•')) {
-    addMsg('bot', 'sk- 로 시작하는 유효한 OpenAI API 키를 입력해주세요.', 'error');
-  }
-}
-
+ 
 async function send() {
   const inp = document.getElementById('inp');
   const text = inp.value.trim();
   if (!text) return;
-  if (!apiKey) {
-    addMsg('bot', '먼저 위에 OpenAI API 키를 입력하고 저장해주세요.', 'error');
-    return;
-  }
   inp.value = '';
   document.getElementById('chips').style.display = 'none';
   addMsg('user', text);
   history.push({ role: 'user', content: text });
-  const t = addMsg('bot', '답변을 작성하는 중...');
+  const t = addMsg('bot', '답변 작성 중...');
   t.style.opacity = '.5';
-
   try {
-    const res = await fetch('https://api.openai.com/v1/chat/completions', {
+    const res = await fetch(API_URL + '/api/chat', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + apiKey
-      },
-      body: JSON.stringify({
-        model: 'gpt-4o',
-        max_tokens: 500,
-        messages: [
-          { role: 'system', content: PROFILE },
-          ...history
-        ]
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: history })
     });
     const d = await res.json();
-    if (d.error) throw new Error(d.error.message);
-    const reply = d.choices[0].message.content;
-    t.textContent = reply;
+    t.textContent = d.answer;
     t.style.opacity = '1';
-    history.push({ role: 'assistant', content: reply });
+    history.push({ role: 'assistant', content: d.answer });
   } catch (e) {
-    t.textContent = '오류가 발생했습니다: ' + e.message;
-    t.style.opacity = '1';
+    t.textContent = '잠시 후 다시 시도해주세요.';
     t.classList.add('error');
+    t.style.opacity = '1';
   }
 }
 
