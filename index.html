@@ -327,8 +327,8 @@
     <h1 class="hero-name">연초희<span>.</span></h1>
     <p class="hero-desc">
       귀찮은 걸 못 참아서 개발자가 됐습니다.<br><br>
-      RAG 기반 문서 챗봇을 회사에서 혼자 기획·개발·배포했고, 아쉬웠던 부분은 포트폴리오로 다시 만들었습니다.<br><br>
-      뭔가를 만들기 전에 "이게 왜 필요한가"를 먼저 묻습니다. 고객사에서 문서 찾기가 어렵다는 요청이 반복되자, 챗봇으로 해결할 수 있겠다고 판단해 직접 기획하고 만들었습니다.
+      Java/Spring Boot로 B2B 업무 시스템을 화면부터 API, DB, 배포까지 만들어 온 6년 차 개발자입니다.<br><br>
+      뭔가를 만들기 전에 "이게 왜 필요한가"를 먼저 묻습니다. 고객사에서 문서 찾기가 어렵다는 요청이 반복되자 RAG 챗봇을 직접 제안해 혼자 기획하고 주요 개발을 맡았고, 회사 프로젝트는 공개할 수 없어 누구나 써 볼 수 있는 공개 데모로 다시 만들었습니다.
     </p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">✉ 연락하기</a>
@@ -356,8 +356,12 @@
         <div class="tag-list">
           <span class="tag tag-main">Java</span>
           <span class="tag tag-main">Spring Boot</span>
-          <span class="tag tag-main">Spring MVC</span>
+          <span class="tag tag-main">Spring Data JPA</span>
+          <span class="tag tag-main">JavaScript</span>
+          <span class="tag tag-main">Vue.js</span>
+          <span class="tag tag-main">React</span>
           <span class="tag tag-main">Python</span>
+          <span class="tag tag-main">FastAPI</span>
         </div>
       </div>
       <div class="stack-item">
@@ -371,13 +375,17 @@
         </div>
       </div>
       <div class="stack-item">
-        <div class="stack-category">외부 연동 · 기타</div>
+        <div class="stack-category">DB · 배포 · 연동</div>
         <div class="tag-list">
-          <span class="tag tag-etc">Autodesk API</span>
-          <span class="tag tag-etc">OBD 실시간통신</span>
-          <span class="tag tag-etc">REST API</span>
-          <span class="tag tag-etc">MySQL</span>
-          <span class="tag tag-etc">Git</span>
+          <span class="tag tag-etc">MariaDB</span>
+          <span class="tag tag-etc">PostgreSQL</span>
+          <span class="tag tag-etc">Oracle</span>
+          <span class="tag tag-etc">GitLab CI/CD</span>
+          <span class="tag tag-etc">GitHub Actions</span>
+          <span class="tag tag-etc">Docker</span>
+          <span class="tag tag-etc">AWS</span>
+          <span class="tag tag-etc">Autodesk ACC/APS API</span>
+          <span class="tag tag-etc">OBD·BLE 차량 데이터</span>
         </div>
       </div>
       <div class="stack-item">
@@ -399,15 +407,30 @@
 
       <div class="proj-card featured">
         <div class="proj-badge">AI · RAG · Featured</div>
-        <div class="proj-title">사내 RAG 문서 챗봇</div>
-        <div class="proj-company">상상진화 · 2025.10~현재</div>
+        <div class="proj-title">Workbee — 사내 RAG 문서 챗봇</div>
+        <div class="proj-company">상상진화 · 2025.07~현재 · 단독 기획, 주요 개발</div>
         <div class="proj-desc">
-          고객사에서 문서 찾기가 어렵다는 요청이 반복되자, 챗봇으로 해결할 수 있겠다고 판단해 직접 기획·개발·배포했습니다. 기획부터 배포까지 단독으로 완수한 프로젝트입니다.
+          고객사에서 "문서가 워낙 방대해 찾기 힘들다"는 요청이 반복되자 RAG 챗봇을 직접 제안해 혼자 기획했습니다. RAG와 벡터 DB를 먼저 공부해 팀에 공유한 뒤, 인덱서·검색 API·임베드형 채팅 위젯을 개발했습니다. 바뀐 파일만 다시 임베딩하는 증분 인덱싱, 출처 번호 인용, 내부 서버 sLLM을 적용했고 현재 사내 테스트 운영 중입니다.
         </div>
         <div class="proj-tags">
           <span class="ptag">Python</span><span class="ptag">FastAPI</span>
           <span class="ptag">ChromaDB</span><span class="ptag">LangChain</span>
-          <span class="ptag">HuggingFace</span><span class="ptag">EXAONE</span>
+          <span class="ptag">bge-m3</span><span class="ptag">EXAONE</span>
+          <span class="ptag">Docker</span>
+        </div>
+      </div>
+
+      <div class="proj-card featured">
+        <div class="proj-badge">Fullstack · Featured</div>
+        <div class="proj-title">건설 현장 통합 대시보드</div>
+        <div class="proj-company">상상진화 · 2026.06~현재 · 단독 풀스택 개발</div>
+        <div class="proj-desc">
+          PM이 Claude Code로 만든 HTML 목업 화면을 그대로 구현하고, 실제 데이터를 연결해 서비스로 만들었습니다. 화면·색상·위젯 구성은 바꾸지 않는다는 원칙으로 진행했습니다. Autodesk ACC 문서, BIM 모델, 현장 공사 정보를 현장 단위로 한 화면에 모았습니다. API 105개, 테스트 770개. 배포 파이프라인이 없던 환경에 GitLab CI/CD를 직접 구축했고, 임원진에게 좋은 반응을 얻어 후속 고도화 2건이 논의됐습니다.
+        </div>
+        <div class="proj-tags">
+          <span class="ptag">Java 17</span><span class="ptag">Spring Boot 3</span>
+          <span class="ptag">JPA</span><span class="ptag">MariaDB</span>
+          <span class="ptag">JavaScript</span><span class="ptag">GitLab CI/CD</span>
         </div>
       </div>
 
@@ -416,7 +439,7 @@
         <div class="proj-title">doc-rag-chat</div>
         <div class="proj-company">개인 프로젝트 · 2026.05</div>
         <div class="proj-desc">
-          회사에서 만든 RAG 챗봇에서 아쉬웠던 것들을 직접 다시 구현했습니다. 문서 업로드, 세션별 대화 기록, SSE 스트리밍 응답, 관리자 대시보드, CI/CD 자동 배포까지 혼자 설계하고 배포한 풀스택 프로젝트입니다.
+          회사 RAG 챗봇은 공개할 수 없어, 같은 경험을 누구나 직접 써 볼 수 있게 만든 공개 데모입니다. 문서를 올리면 바로 인덱싱되고, 접속자마다 벡터 컬렉션을 따로 둬 데이터를 격리합니다. SSE 스트리밍, 관리자 화면, GitHub Actions 자동 배포까지 혼자 설계하고 배포했습니다.
         </div>
         <div class="proj-tags">
           <span class="ptag">FastAPI</span><span class="ptag">ChromaDB</span>
@@ -427,6 +450,24 @@
         <div style="margin-top:1rem;display:flex;gap:8px;flex-wrap:wrap;">
           <a href="https://yeonchohee.github.io/doc-rag-chat/" target="_blank" class="btn btn-primary" style="font-size:12px;padding:8px 16px;">직접 써보기 →</a>
           <a href="https://github.com/yeonchohee/doc-rag-chat" target="_blank" class="btn btn-ghost" style="font-size:12px;padding:8px 16px;">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="proj-card featured">
+        <div class="proj-badge">Dev Tool · Side Project</div>
+        <div class="proj-title">maxpolio</div>
+        <div class="proj-company">개인 프로젝트 · 2026.09~현재</div>
+        <div class="proj-desc">
+          Claude Code 작업 기록과 git 이력을 기술 저널과 포트폴리오로 자동 정리하는 도구입니다. 세션이 끝나면 훅은 큐에 메모만 남기고, Windows 작업 스케줄러가 띄운 프로세스가 분류와 글쓰기를 맡습니다. 터미널을 닫으면 작업이 같이 죽던 문제를 이 구조로 풀었습니다.
+        </div>
+        <div class="proj-tags">
+          <span class="ptag">Node.js</span><span class="ptag">Claude Code Hooks</span>
+          <span class="ptag">Task Scheduler</span><span class="ptag">Obsidian</span>
+        </div>
+        <div style="margin-top:1rem;display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="maxpolio-demo.html" target="_blank" class="btn btn-primary" style="font-size:12px;padding:8px 16px;">시연 보기 →</a>
+          <a href="https://github.com/yeonchohee/maxpolio" target="_blank" class="btn btn-ghost" style="font-size:12px;padding:8px 16px;">GitHub →</a>
+          <a href="https://bugcookie.tistory.com/" target="_blank" class="btn btn-ghost" style="font-size:12px;padding:8px 16px;">동작 원리 글 →</a>
         </div>
       </div>
 
@@ -445,7 +486,7 @@
         <div>
           <div class="career-company">상상진화</div>
           <div class="career-desc">
-            Autodesk API 기반 플랫폼 R&D를 진행하던 중, RAG 기반 AI 챗봇 서비스로 방향을 직접 제안·전환해 기획·개발·배포까지 단독으로 완수했습니다.
+            DT팀 연구원. Autodesk ACC 연동 문서 보안 관리 시스템 R&D로 시작해, 건설 현장용 PDF 설계도 앱의 기술 선정과 설계를 맡았습니다. 고객사 요청에서 출발한 RAG 문서 챗봇(Workbee)을 직접 제안해 단독 기획하고 주요 개발을 맡았고, 건설 현장 통합 대시보드를 단독으로 풀스택 개발했습니다.
           </div>
         </div>
       </div>
@@ -465,13 +506,13 @@
         <div>
           <div class="career-company">드림에이스</div>
           <div class="career-desc">
-            OBD 동글로 차량 데이터를 받아 웹·앱에서 문 잠금, 경적, 라이트까지 제어하는 FMS 차량관제시스템을 개발했습니다. 버튼 하나로 실제 차량이 반응하는 게 신기하고 재밌었던 프로젝트였습니다.
+            OBD 동글로 차량 데이터를 받아 웹·앱에서 문 잠금, 경적, 라이트까지 제어하는 FMS 차량관제시스템을 개발했습니다. 관리자 웹과 운전자 앱을 백엔드 하나로 서비스하려고 프론트엔드·백엔드 분리와 Vue.js 도입을 제안해 채택됐고, 그 덕분에 외주로 관리가 어렵던 운전자 앱을 Flutter WebView로 직접 만들었습니다. 버튼 하나로 실제 차량이 반응하는 게 신기하고 재밌었던 프로젝트였습니다.
           </div>
         </div>
       </div>
 
       <div class="career-item">
-        <div class="career-period">2019.07<br>~ 2022.02</div>
+        <div class="career-period">2019.07<br>~ 2022.03</div>
         <div>
           <div class="career-company">한국네트웍스</div>
           <div class="career-desc">
@@ -481,7 +522,7 @@
             </div>
             <div>
               <strong style="font-size:13px;color:var(--text);">MES · 스마트팩토리</strong><br>
-              LMS 사업이 축소될 때 MES 하겠다고 자원해서 서울로 올라왔습니다. GC녹십자셀 암공정 시스템 포함 다수 현장을 돌며, 세상이 이렇게 돌아가는구나 싶었습니다.
+              LMS 사업이 축소될 때 MES 하겠다고 자원해서 서울로 올라왔습니다. Java 개발자였지만 C#/.NET을 새로 익혀 제약·식품·화학 현장 3곳의 MES 구축에 참여했고, 여러 현장을 돌며 세상이 이렇게 돌아가는구나 싶었습니다.
             </div>
           </div>
         </div>
