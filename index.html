@@ -479,6 +479,23 @@
         </div>
       </div>
 
+      <div class="proj-card featured">
+        <div class="proj-badge">Music · Side Project</div>
+        <div class="proj-title">playnote</div>
+        <div class="proj-company">개인 프로젝트 · 2026.08</div>
+        <div class="proj-desc">
+          직장인 밴드 멤버가 곡을 써 왔는데, 악보만 보고는 어떤 곡인지 바로 들어 볼 수가 없어서 만들었습니다. 인쇄 악보 PDF를 올리면 악보 인식(OMR)으로 MusicXML을 만들고, 브라우저에서 악보를 그리며 커서를 따라 재생합니다. 오픈소스 인식 엔진(oemer)이 악보 한 장에 메모리를 5GB 넘게 쓰던 문제를, 추론 결과를 배치마다 바로 합치고 버리도록 런타임 패치해 풀었습니다. 속도 튜닝 후보 네 가지를 실측으로 비교해 처리 시간을 318초에서 168초로 줄였고, 음정 인식 결과가 그대로인지 결과 비교로 확인했습니다.
+        </div>
+        <div class="proj-tags">
+          <span class="ptag">Python</span><span class="ptag">FastAPI</span>
+          <span class="ptag">oemer (ONNX)</span><span class="ptag">React</span>
+          <span class="ptag">OpenSheetMusicDisplay</span><span class="ptag">Tone.js</span>
+        </div>
+        <div style="margin-top:1rem;display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="assets/playnote-demo.gif" target="_blank" class="btn btn-primary" style="font-size:12px;padding:8px 16px;">시연 영상 →</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
